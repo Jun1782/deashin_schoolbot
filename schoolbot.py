@@ -1,6 +1,7 @@
 import requests
 import datetime
 import os
+import pytz  # 한국 시간대 적용
 
 # 🔹 환경 변수에서 불러오기 (Secrets)
 API_KEY = os.getenv("NEIS_API_KEY")
@@ -11,8 +12,9 @@ SD_SCHUL_CODE = "7010140"    # 학교 코드
 GRADE = "1"                  # 학년
 CLASS_NM = "3"               # 반
 
-# 오늘 날짜
-today = datetime.datetime.now()
+# 오늘 날짜 (한국 시간 기준)
+kst = pytz.timezone("Asia/Seoul")
+today = datetime.datetime.now(kst)
 today_str = today.strftime("%Y%m%d")
 
 # 요일 변환
