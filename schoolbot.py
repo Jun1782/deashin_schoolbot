@@ -12,7 +12,8 @@ GRADE = "1"                  # 학년
 CLASS_NM = "3"               # 반
 
 today = datetime.datetime.now()
-today_str = today.strftime("%Y%m%d")
+target_date = today + datetime.timedelta(days=1)
+today_str = target_date.strftime("%Y%m%d")
 
 # 요일 변환
 weekdays = ["월요일","화요일","수요일","목요일","금요일","토요일","일요일"]
